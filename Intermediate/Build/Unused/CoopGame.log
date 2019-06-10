@@ -1,0 +1,9 @@
+﻿  Compiling game modules for hot reload
+  Performing 3 actions (4 in parallel)
+  SPowerupActor.cpp
+  [2/3] Link UE4Editor-CoopGame-7369.dll
+  [3/3] Link UE4Editor-CoopGame-7369.lib
+     Bibliothek "D:\GitHub\UE4\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-CoopGame-7369.lib" und Objekt "D:\GitHub\UE4\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-CoopGame-7369.exp" werden erstellt.
+     Bibliothek "D:\GitHub\UE4\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-CoopGame-7369.suppressed.lib" und Objekt "D:\GitHub\UE4\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-CoopGame-7369.suppressed.exp" werden erstellt.
+  Deploying CoopGameEditor Win64 Development...
+  Total build time: 5.83 seconds (Local executor: 1.77 seconds)
