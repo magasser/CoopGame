@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeCoopGame_init() {}
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/CoopGame")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x326222B9;
-			Guid.B = 0x631DA77F;
+			Guid.A = 0x6AF17FDC;
+			Guid.B = 0x8759A541;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

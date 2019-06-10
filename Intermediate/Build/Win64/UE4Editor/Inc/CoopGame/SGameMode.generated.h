@@ -15,6 +15,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define CoopGame_Source_CoopGame_Public_SGameMode_h_15_RPC_WRAPPERS
 #define CoopGame_Source_CoopGame_Public_SGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define CoopGame_Source_CoopGame_Public_SGameMode_h_15_EVENT_PARMS
+#define CoopGame_Source_CoopGame_Public_SGameMode_h_15_CALLBACK_WRAPPERS
 #define CoopGame_Source_CoopGame_Public_SGameMode_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASGameMode(); \
@@ -37,7 +39,7 @@ public: \
 
 #define CoopGame_Source_CoopGame_Public_SGameMode_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API ASGameMode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASGameMode) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASGameMode); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASGameMode); \
@@ -49,8 +51,6 @@ public:
 
 
 #define CoopGame_Source_CoopGame_Public_SGameMode_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASGameMode(ASGameMode&&); \
@@ -58,16 +58,23 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASGameMode); \
 DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASGameMode); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASGameMode)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASGameMode)
 
 
-#define CoopGame_Source_CoopGame_Public_SGameMode_h_15_PRIVATE_PROPERTY_OFFSET
-#define CoopGame_Source_CoopGame_Public_SGameMode_h_12_PROLOG
+#define CoopGame_Source_CoopGame_Public_SGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__TimeBetweenWaves() { return STRUCT_OFFSET(ASGameMode, TimeBetweenWaves); }
+
+
+#define CoopGame_Source_CoopGame_Public_SGameMode_h_12_PROLOG \
+	CoopGame_Source_CoopGame_Public_SGameMode_h_15_EVENT_PARMS
+
+
 #define CoopGame_Source_CoopGame_Public_SGameMode_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_RPC_WRAPPERS \
+	CoopGame_Source_CoopGame_Public_SGameMode_h_15_CALLBACK_WRAPPERS \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_INCLASS \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_STANDARD_CONSTRUCTORS \
 public: \
@@ -79,6 +86,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_SGameMode_h_15_CALLBACK_WRAPPERS \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_INCLASS_NO_PURE_DECLS \
 	CoopGame_Source_CoopGame_Public_SGameMode_h_15_ENHANCED_CONSTRUCTORS \
 private: \
