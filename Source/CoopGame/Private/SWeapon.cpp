@@ -29,7 +29,8 @@ ASWeapon::ASWeapon()
 	TracerTargetName = "Target";
 
 	BaseDamage = 20.f;
-
+	ProjectileSpreadAngle = 0.f;
+	ProjectileSpreadAngleZoomed = 0.f;
 	RateOfFire = 600.f;
 
 	SetReplicates(true);
@@ -45,8 +46,8 @@ void ASWeapon::BeginPlay()
 	TimeBetweenShots = 60 / RateOfFire;
 
 	// Convert Spread Angle to Radian
-	ProjectileSpreadAngleRad = ProjectileSpreadAngle * 3.14159f / 180.f;
-	ProjectileSpreadAngleRadZoomed = ProjectileSpreadAngleZoomed * 3.141599f / 180.f;
+	ProjectileSpreadAngleRad = FMath::DegreesToRadians(ProjectileSpreadAngle);
+	ProjectileSpreadAngleRadZoomed = FMath::DegreesToRadians(ProjectileSpreadAngleZoomed);
 }
 
 void ASWeapon::Fire()
@@ -64,6 +65,7 @@ void ASWeapon::Fire()
 		FRotator EyeRotation;
 		MyOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
+		// Bullet Spread
 		FVector ShotDirection = FMath::VRandCone(EyeRotation.Vector(), ProjectileSpreadAngleRad);
 		if (MyOwner->bWantsToZoom)
 		{
@@ -97,7 +99,7 @@ void ASWeapon::Fire()
 				ActualDamage *= 4.f;
 			}
 
-			UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), this, DamageType);
+			UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), MyOwner, DamageType);
 			
 			PlayImpactEffects(SurfaceType, Hit.ImpactPoint);
 
